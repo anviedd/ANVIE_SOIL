@@ -1,0 +1,20 @@
+extends ../layout/_page
+
+block append config
+	- var page = pagelist['about'];
+
+block append head
+	link(rel="stylesheet" href=ROOT_PATH+"css/about/style.css")
+
+block content
+	// main
+	main.main
+		h1 #{page.name}
+		+breadcrumbs([
+			['ホーム', '/'],
+			[page.title, page.local_url]
+		])
+	// /main
+
+block append script
+	script(src=ROOT_PATH+"js/about.js")

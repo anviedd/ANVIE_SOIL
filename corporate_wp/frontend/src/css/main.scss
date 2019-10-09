@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+// @import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,700");
+
+/*!
+Theme Name: test
+Description:
+Version: 1.0.0
+*/
+
+
+// ==========================================================================
+// Foundation
+// ==========================================================================
+
+@import "foundation/color";
+@import "foundation/font";
+@import "foundation/mq";
+@import "foundation/variables-easings";
+@import "foundation/_global";
+
+// ==========================================================================
+// Layout
+// ==========================================================================
+@import "layout/_footer";
+@import "layout/_header";
+@import "layout/_page";
+
+// ==========================================================================
+// Object
+// ==========================================================================
+// -----------------------------------------------------------------
+// Component
+// -----------------------------------------------------------------
+@import "object/component/_fade-in-up";
+@import "object/component/_fade-in";
+@import "object/component/button";
+// -----------------------------------------------------------------
+// page
+// -----------------------------------------------------------------
+@import "object/page/index";

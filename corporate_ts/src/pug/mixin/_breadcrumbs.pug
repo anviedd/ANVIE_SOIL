@@ -1,0 +1,20 @@
+mixin breadcrumbs(_list)
+
+	ul.breadcrumbs(itemscope itemtype="http://schema.org/BreadcrumbList")
+
+		each _item, _index in _list
+			- var _position = _index + 1
+
+			li.breadcrumbs_item(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+
+				if _position != _list.length
+
+					a(href=_item[1] itemprop="item")
+						span(itemprop="name") #{_item[0]}
+						meta(itemprop="position" content=_position)
+
+				else
+
+					a(href=_item[1] itemprop="item" aria-current="page")
+						span(itemprop="name") #{_item[0]}
+						meta(itemprop="position" content=_position)

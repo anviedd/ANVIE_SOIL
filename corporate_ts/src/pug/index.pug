@@ -1,0 +1,16 @@
+extends ./layout/_home
+
+block append config
+	- var page = pagelist['home'];
+
+block append head
+	link(rel="stylesheet" href=ROOT_PATH+"css/home/style.css")
+
+block content
+	// main
+	main.main
+		p TOPページのメインコンテンツ
+	// /main
+
+block append script
+	script(src=ROOT_PATH+"js/home.js")
