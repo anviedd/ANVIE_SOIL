@@ -1,5 +1,9 @@
+// 設定ファイル
+// 対象パスやオプションを指定
+
 const DOMAIN = module.exports.DOMAIN = 'https://www.tplh.net';
 const DIR = module.exports.DIR = {
+  // 語尾にスラッシュはつけない
   PATH: '',
   SRC: 'src',
   DEST: '../assets',
@@ -14,7 +18,6 @@ module.exports.serve = {
     notify: false,
     startPath: `${DIR.PATH}/`,
     ghostMode: false,
-    open: false,
     server: {
       baseDir: DIR.DEST,
       index: 'index.html',
@@ -27,7 +30,6 @@ module.exports.serve = {
     notify: false,
     startPath: DIR.PATH,
     ghostMode: false,
-    open: false,
     server: {
       baseDir: DIR.BUILD,
       index: 'index.html',

@@ -5,7 +5,6 @@ const $ = require('../plugins');
 const DIR = require('../conf').DIR;
 
 const reload = (done) => {
-  open: false;C
   browserSync.reload();
   done();
 };
