@@ -1,4 +1,4 @@
-- 
+-
   var titleMerge = (page.title != '') ? page.title + ' | ' + data.meta.websiteName : data.meta.websiteName;
   var keywordsMerge = (page.keywords != '') ? page.keywords + ', ' + data.meta.keywords : data.meta.keywords;
 
@@ -9,8 +9,8 @@ meta(name="viewport", content="width=device-width")
 meta(name="description", content=page.description)
 meta(name="keywords", content=keywordsMerge)
 
-style.
-  .l-page { visibility: hidden; }
+//- style.
+//-   .l-page { visibility: hidden; }
 link(rel="preload" as="style" href=`${data.meta.path}/css/main.css` onload="this.onload=null;this.rel='stylesheet'")
 
 link(rel="icon" href=`${data.meta.path}/img/common/icon.ico`)

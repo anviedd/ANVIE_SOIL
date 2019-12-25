@@ -1,4 +1,47 @@
 /*! header */
-.l-header {}
+.l-header {
+  height: 80px;
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.l-header__link-value {
+  color: #000;
+  line-height: 1;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+
+  &.-en {
+    font-family: serif;
+  }
+
+  &.-ja {
+    font-size: 2rem;
+  }
+}
+
+.l-header__list {
+  $this: &;
+  display: flex;
+  height: 100%;
+}
+
+.l-header__item,
+.l-header__nav {
+  height: 100%;
+}
+
+.l-header__link {
+  $this: &;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
 
 /* end */
