@@ -1,0 +1,74 @@
+@mixin none-appearance {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none transparent;
+  background-clip: padding-box;
+  color: inherit;
+  font-size: inherit;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &::-ms-reveal {
+    display: none;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+@mixin placeholder-color($color) {
+  &:placeholder-shown {
+    color: $color;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@function get_vw($size, $viewport:320) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+@mixin fz($font_size:10) {
+  font-size: $font_size * 1px;
+  font-size: get_vw($font_size);
+}
+
+// fz(14)
+
+$sp-design-width: 375;
+$pc-design-width: 1280;
+
+@function spvw($num, $width: $sp-design-width) {
+  @return (1vw * $num / $width * 100);
+}
+
+@function pcvw($num, $width: $pc-design-width) {
+  @return (1vw * $num / $width * 100);
+}
