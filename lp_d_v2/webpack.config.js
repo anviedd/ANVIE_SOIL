@@ -81,10 +81,6 @@ const jsConfig = {
   plugins: [
     new webpack.optimize.AggressiveMergingPlugin(),
     new CleanWebpackPlugin(),
-    new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, 'src/assets/images/'),
-      to: path.resolve(__dirname, 'public/assets/images/'),
-    }, ]),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
       pngquant: {
@@ -97,6 +93,9 @@ const jsConfig = {
       'window.jQuery': 'jquery',
     }),
   ],
+  performance: {
+    hints: false
+  },
   cache: true
 };
 
@@ -117,7 +116,7 @@ const scssLoader = {
     }
   ]
 };
-const stylusConfig = {
+const styleConfig = {
   mode: mode,
   entry: ENTRYPOINT['css'],
   output: {
@@ -133,6 +132,9 @@ const stylusConfig = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)(\?[a-z0-9=.]+)?$/,
+        include: [
+          path.resolve(__dirname, 'src/assets/images/'),
+        ],
         loader: 'url-loader',
       }, {
         test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/,
@@ -158,7 +160,16 @@ const stylusConfig = {
       new OptimizeCSSAssetsPlugin()
     ],
   },
-  plugins: [new ExtractTextPlugin('[name]')],
+  plugins: [
+    new ExtractTextPlugin('[name]'),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, 'src/assets/images/'),
+      to: path.resolve(__dirname, 'public/assets/images/'),
+    }, {
+      from: path.resolve(__dirname, 'static/'),
+      to: path.resolve(__dirname, 'public/static/'),
+    }]),
+  ],
   cache: true
 };
 
@@ -205,5 +216,5 @@ const pugConfig = {
 
 };
 
-const config = [stylusConfig, jsConfig, pugConfig]
+const config = [styleConfig, jsConfig, pugConfig]
 module.exports = config
