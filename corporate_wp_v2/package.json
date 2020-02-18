@@ -6,9 +6,8 @@
   "author": "k-ike <healer.xxx9@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "rimraf dist && webpack --config ./webpack.config.js --env.NODE_ENV=production --mode=production --progress",
+    "start": "rimraf dist && webpack && webpack-dev-server --config ./webpack.config.js -env.NODE_ENV=development --mode=development --progress"
   },
   "dependencies": {
     "@babel/core": "^7.8.4",
@@ -33,5 +32,10 @@
     "Android >= 4",
     "iOS >= 8"
   ],
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
+    "webpack-dev-server": "^3.10.3"
+  }
 }
