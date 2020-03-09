@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+/*!
+Theme Name: wpT
+Description:
+Version: 1.0.0
+*/
+
+// ==========================================================================
+// Foundation
+// ==========================================================================
+
+@import "foundation/color";
+@import "foundation/font";
+@import "foundation/mq";
+@import "foundation/variables-easings";
+@import "foundation/reset";
+@import "foundation/global";
+@import "foundation/mixins";
+
+/*********************************
+  Layout
+*********************************/
+@import "./layout/_header";
+@import "./layout/_footer";
+@import "./layout/_page";
+@import "./layout/_navigation";
+
+/*********************************
+  Object
+*********************************/
+/* Component */
+@import "./object/component/button";
+
+/* Page */
+@import "./object/project/index";
