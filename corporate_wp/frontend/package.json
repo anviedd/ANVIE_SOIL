@@ -40,7 +40,7 @@
     "gulp-sitemap": "^7.4.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "luxy.js": "^0.1.0",
     "merge-stream": "^2.0.0",
     "node-sass": "^4.12.0",
