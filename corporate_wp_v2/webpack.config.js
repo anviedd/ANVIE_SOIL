@@ -9,9 +9,12 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 // 画像圧縮
-const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
-const ImageminWebP = require("imagemin-webp");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+// const ImageminPngquant = require('imagemin-pngquant');
+// const ImageminGifsicle = require('imagemin-gifsicle');
+// const ImageminSvgo = require('imagemin-svgo');
 
 module.exports = env => {
   return {
@@ -84,6 +87,20 @@ module.exports = env => {
             'sass-loader',
           ],
         },
+
+        // 画像
+        {
+          test: /\.(jpe?g|png|gif|svg|icon)$/i,
+          loader: 'url-loader',
+          options: {
+            limit: 8192,
+            name: '[name].[ext]',
+            outputPath: 'img/',
+            publicPath: function (path) {
+              return '../img/' + path;
+            }
+          }
+        }
       ]
     },
 
@@ -113,11 +130,22 @@ module.exports = env => {
       }]),
 
       // 画像圧縮
-      new ImageminWebpackPlugin({
+      new ImageminPlugin({
         test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
+        pngquant: {
+          quality: '65-80'
+        },
+        gifsicle: {
+          interlaced: false,
+          optimizationLevel: 1,
+          colors: 256
+        },
+        svgo: {
+        },
         plugins: [
-          ImageminWebP({
-            quality: 80
+          ImageminMozjpeg({
+            quality: 85,
+            progressive: true
           })
         ]
       }),
